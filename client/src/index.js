@@ -17,16 +17,17 @@ import {
 } from "redux-persist";
 
 import storage from "redux-persist/lib/storage";
-import { PersistGate } from "redux-persist/integration/react";
+import { PersistGate } from "redux-persist/integration/react"; // enables storing the states to the local; can remove via clearing the cache
 
-const rootReducer = combineReducers({ authReducer });
+// const rootReducer = combineReducers({ authReducer });
+
 const persistConfig = { key: "root", storage, version: 1 };
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+const persistedReducer = persistReducer(persistConfig, authReducer);
 const store = configureStore({
+  // reducer: rootReducer,
   reducer: persistedReducer,
-  // middleware: (getDefaultMiddleware) => {
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware.connect({
+    getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },

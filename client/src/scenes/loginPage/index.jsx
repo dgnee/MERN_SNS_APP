@@ -8,7 +8,7 @@ const LoginPage = () => {
     <Box>
       <Box
         width="100%"
-        backgroundColor={theme.palatte.background.alt}
+        backgroundColor={theme.palette.background.alt}
         p="1rem 6%"
         textAlign="center"
       >
@@ -23,9 +23,10 @@ const LoginPage = () => {
         borderRadius="1.5rem"
         backgroundColor={theme.palette.background.alt}
       >
-        <Typography fontweight="500" variant="h5" sx={{ md: "1.5rem" }}>
+        <Typography fontWeight="500" variant="h5" sx={{ mb: "1.5rem" }}>
           Welcome to Sociopedia, the Social Mdeia for Sociopaths!
         </Typography>
+        <Form />
       </Box>
     </Box>
   );
